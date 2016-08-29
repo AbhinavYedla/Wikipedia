@@ -22,7 +22,7 @@
 #' For more details please check List_of_Wikipedias page[1]
 #'
 #' @examples
-#' wikiEdits("United_States","en")
+#' wiki_edits("United_States","en")
 #'
 #' @author
 #' Abhinav Yedla \email{abhinavyedla@gmail.com}
@@ -36,23 +36,22 @@
 #' @seealso
 #' \code{\link{}}
 #' 
-#' @note languageCodes is a dataframe with all language short codes
+#' @note wikiLangCodes is a dataframe with all language short codes
 #'
 #' @import rvest
 #'
 #' @export
 
 
-wikiEdits <- function(page.title, language = "en") {
+wiki_edits <- function(page.title, language = "en") {
 
   #Checking parameters
   if (missing(page.title)){
-    stop("Page Title is not provided")
+    stop("Please provide the wikipedia Page Title")
   }
-  data(languageCodes)
   
-  if(!language %in% languageCodes$ShortCode){
-    stop("Please check the language code. Use  languageCodes data frame language short code")
+  if(!language %in% wikiLangCodes$ShortCode){
+    stop("Please check the language code. Refer to wikiLangCodes data frame for language short code")
   }
     
 
@@ -79,7 +78,7 @@ wikiEdits <- function(page.title, language = "en") {
     interm.data <- split(data, ceiling(seq.data / 6))
 
     #Consolidate the data
-    df <- do.call(rbind, interm.data)
+    df <- as.data.frame(do.call(rbind, interm.data))
     df$language <-  language
 
     

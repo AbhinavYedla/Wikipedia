@@ -1,10 +1,10 @@
-Package: wikipedia
+Package: wikipediar
 Version: 0.1.0
 Date: 2016-08-07
 Title: Wikipedia Dumps(Edits, Views and Top1000)
 Author: Abhinav Yedla, Dr.Shawn Dorius
 Maintainer: Abhinav Yedla <abhinavyedla@gmail.com>
-Description: Get country specific google auto complete suggestions results.
+Description: Program to collect data using the Wikipedia edits, views and Top1000 API.
 Depends:
     R (>= 3.1.0),
     rvest,
